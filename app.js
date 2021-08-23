@@ -36,7 +36,32 @@ const server = http.createServer((req, res) => {
     }
     //Recurso de clientes
     else if (url == '/api/clientes') {
-        //TODO
+        axios.get('https://gist.githubusercontent.com/josejbocanegra/986182ce2dd3e6246adcf960f9cda061/raw/f013c156f37c34117c0d4ba9779b15d427fb8dcd/clientes.json')
+            .then(function (response) {
+                // handle success
+                res.writeHead(200, { contentType: 'text/html' });
+                const principio = readFileSync('./templateBeginClientes.html', 'utf8');
+                const fin = readFileSync('./templateEndClientes.html', 'utf8');
+                writeFileSync('./clientes.html', principio);
+                writeFileSync('./templateMiddle.html', '[');
+                response.data.forEach(function (cliente){
+                    const idCliente = cliente.idCliente;
+                    const nomCompania = cliente.NombreCompania;
+                    const nomContacto = cliente.NombreContacto;
+                    writeFileSync('./templateMiddle.html', `{ id: "${idCliente}", nombrecompania: "${nomCompania}", nombrecontacto: "${nomContacto}" },` ,{flag: 'a'});
+                })
+                writeFileSync('./templateMiddle.html', '];' ,{flag: 'a'});
+                const mid = readFileSync('./templateMiddle.html', 'utf8');
+                writeFileSync('./clientes.html', mid, {flag: 'a'});
+                writeFileSync('./clientes.html', fin, {flag: 'a'});
+                const archivo = readFileSync('./clientes.html', 'utf8');
+                res.write(archivo);
+                res.end();
+            })
+            .catch(function (error) {
+                // handle error
+                console.log(error);
+            });
     }
     //404
     else {

@@ -1,0 +1,47 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<link
+  rel="stylesheet"
+  href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+  crossorigin="anonymous"
+/>
+
+<style>
+  th {
+    color: rgb(0, 0, 0);
+  }
+</style>
+
+<center><font size="+3" color="black">Listado de clientes</font></center>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Nombre</th>
+    <th>Contacto</th>
+  </thead>
+  </tr>
+
+  <tbody id="myTable"></tbody>
+</table>
+
+<script>
+  var myArray = 
+[{ id: "ALFKI", nombrecompania: "Alfreds Futterkiste", nombrecontacto: "Maria Anders" },{ id: "ANATR", nombrecompania: "Ana Trujillo Emparedados y helados", nombrecontacto: "Ana Trujillo" },{ id: "ANTON", nombrecompania: "Antonio Moreno Taquer", nombrecontacto: "Antonio Moreno" },{ id: "AROUT", nombrecompania: "Around the Horn", nombrecontacto: "Thomas Hardy" },{ id: "BERGS", nombrecompania: "Berglunds snabbk", nombrecontacto: "Christina Berglund" },{ id: "BLAUS", nombrecompania: "Blauer See Delikatessen", nombrecontacto: "Hanna Moos" },{ id: "BLONP", nombrecompania: "Blondel p", nombrecontacto: "Fr" },{ id: "BOLID", nombrecompania: "B", nombrecontacto: "Mart" },{ id: "BONAP", nombrecompania: "Bon app'", nombrecontacto: "Laurence Lebihan" },{ id: "BOTTM", nombrecompania: "Bottom Dollar Markets", nombrecontacto: "Elizabeth Lincoln" },{ id: "BSBEV", nombrecompania: "B's Beverages", nombrecontacto: "Victoria Ashworth" },{ id: "CACTU", nombrecompania: "Cactus Comidas para llevar", nombrecontacto: "Patricio Simpson" },{ id: "CENTC", nombrecompania: "Centro comercial Moctezuma", nombrecontacto: "Francisco Chang" },{ id: "CHOPS", nombrecompania: "Chop suey Chinese", nombrecontacto: "Yang Wang" },{ id: "COMMI", nombrecompania: "Com", nombrecontacto: "Pedro Afonso" },{ id: "CONSH", nombrecompania: "Consolidated Holdings", nombrecontacto: "Elizabeth Brown" },{ id: "DRACD", nombrecompania: "Drachenblut Delikatessen", nombrecontacto: "Sven Ottlieb" },{ id: "DUMON", nombrecompania: "Du monde entier", nombrecontacto: "Janine Labrune" },{ id: "EASTC", nombrecompania: "Eastern Connection", nombrecontacto: "Ann Devon" },{ id: "ERNSH", nombrecompania: "Ernst Handel", nombrecontacto: "Roland Mendel" },{ id: "FAMIA", nombrecompania: "Familia Arquibaldo", nombrecontacto: "Aria Cruz" },{ id: "FISSA", nombrecompania: "FISSA Fabrica Inter. Salchichas S.A.", nombrecontacto: "Diego Roel" },{ id: "FOLIG", nombrecompania: "Folies gourmandes", nombrecontacto: "Martine Ranc" },{ id: "FOLKO", nombrecompania: "Folk och f", nombrecontacto: "Maria Larsson" },{ id: "FRANK", nombrecompania: "Frankenversand", nombrecontacto: "Peter Franken" },{ id: "FRANR", nombrecompania: "France restauration", nombrecontacto: "Carine Schmitt" },{ id: "FRANS", nombrecompania: "Franchi S.p.A.", nombrecontacto: "Paolo Accorti" },{ id: "FURIB", nombrecompania: "Furia Bacalhau e Frutos do Mar", nombrecontacto: "Lino Rodriguez " },{ id: "GALED", nombrecompania: "Galer", nombrecontacto: "Eduardo Saavedra" },{ id: "GODOS", nombrecompania: "Godos Cocina T", nombrecontacto: "Jos" },{ id: "GOURL", nombrecompania: "Gourmet Lanchonetes", nombrecontacto: "Andr" },{ id: "GREAL", nombrecompania: "Great Lakes Food Market", nombrecontacto: "Howard Snyder" },{ id: "GROSR", nombrecompania: "GROSELLA Restaurante", nombrecontacto: "Manuel Pereira" },{ id: "HANAR", nombrecompania: "Hanari Carnes", nombrecontacto: "Mario Pontes" },{ id: "HILAA", nombrecompania: "HILARI", nombrecontacto: "Carlos Hern" },{ id: "HUNGC", nombrecompania: "Hungry Coyote Import Store", nombrecontacto: "Yoshi Latimer" },{ id: "HUNGO", nombrecompania: "Hungry Owl All Night Grocers", nombrecontacto: "Patricia McKenna" },{ id: "ISLAT", nombrecompania: "Island Trading", nombrecontacto: "Helen Bennett" },{ id: "KOENE", nombrecompania: "K", nombrecontacto: "Philip Cramer" },{ id: "LACOR", nombrecompania: "La corne d'abondance", nombrecontacto: "Daniel Tonini" },{ id: "LAMAI", nombrecompania: "La maison d'Asie", nombrecontacto: "Annette Roulet" },{ id: "LAUGB", nombrecompania: "Laughing Bacchus Wine Cellars", nombrecontacto: "Yoshi Tannamuri" },{ id: "LAZYK", nombrecompania: "Lazy K Kountry Store", nombrecontacto: "John Steel" },{ id: "LEHMS", nombrecompania: "Lehmanns Marktstand", nombrecontacto: "Renate Messner" },{ id: "LETSS", nombrecompania: "Let's Stop N Shop", nombrecontacto: "Jaime Yorres" },{ id: "LILAS", nombrecompania: "LILA Supermercado", nombrecontacto: "Carlos Gonz" },{ id: "LINOD", nombrecompania: "LINO Delicateses", nombrecontacto: "Felipe Izquierdo" },{ id: "LONEP", nombrecompania: "Lonesome Pine Restaurant", nombrecontacto: "Fran Wilson" },{ id: "MAGAA", nombrecompania: "Magazzini Alimentari Riuniti", nombrecontacto: "Giovanni Rovelli" },{ id: "MAISD", nombrecompania: "Maison Dewey", nombrecontacto: "Catherine Dewey" },{ id: "MEREP", nombrecompania: "M", nombrecontacto: "Jean Fresni" },{ id: "MORGK", nombrecompania: "Morgenstern Gesundkost", nombrecontacto: "Alexander Feuer" },{ id: "NORTS", nombrecompania: "North/South", nombrecontacto: "Simon Crowther" },{ id: "OCEAN", nombrecompania: "Oc", nombrecontacto: "Yvonne Moncada" },{ id: "OLDWO", nombrecompania: "Old World Delicatessen", nombrecontacto: "Rene Phillips" },{ id: "OTTIK", nombrecompania: "Ottilies K", nombrecontacto: "Henriette Pfalzheim" },{ id: "PARIS", nombrecompania: "Paris sp", nombrecontacto: "Marie Bertrand" },{ id: "PERIC", nombrecompania: "Pericles Comidas cl", nombrecontacto: "Guillermo Fern" },{ id: "PICCO", nombrecompania: "Piccolo und mehr", nombrecontacto: "Georg Pipps" },{ id: "PRINI", nombrecompania: "Princesa Isabel Vinhos", nombrecontacto: "Isabel de Castro" },{ id: "QUEDE", nombrecompania: "Que Del", nombrecontacto: "Bernardo Batista" },{ id: "QUEEN", nombrecompania: "Queen Cozinha", nombrecontacto: "L" },{ id: "QUICK", nombrecompania: "QUICK Stop", nombrecontacto: "Horst Kloss" },{ id: "RANCH", nombrecompania: "Rancho grande", nombrecontacto: "Sergio Guti" },{ id: "RATTC", nombrecompania: "Rattlesnake Canyon Grocery", nombrecontacto: "Paula Wilson" },{ id: "REGGC", nombrecompania: "Reggiani Caseifici", nombrecontacto: "Maurizio Moroni" },{ id: "RICAR", nombrecompania: "Ricardo Adocicados", nombrecontacto: "Janete Limeira" },{ id: "RICSU", nombrecompania: "Richter Supermarkt", nombrecontacto: "Michael Holz" },{ id: "ROMEY", nombrecompania: "Romero y tomillo", nombrecontacto: "Alejandra Camino" },{ id: "SANTG", nombrecompania: "Sant", nombrecontacto: "Jonas Bergulfsen" },{ id: "SAVEA", nombrecompania: "Save a lot Markets", nombrecontacto: "Jose Pavarotti" },{ id: "SEVES", nombrecompania: "Seven Seas Imports", nombrecontacto: "Hari Kumar" },{ id: "SIMOB", nombrecompania: "Simons bistro", nombrecontacto: "Jytte Petersen" },{ id: "SPECD", nombrecompania: "Sp", nombrecontacto: "Dominique Perrier" },{ id: "SPLIR", nombrecompania: "Split Rail Beer & Ale", nombrecontacto: "Art Braunschweiger" },{ id: "SUPRD", nombrecompania: "Supr", nombrecontacto: "Pascale Cartrain" },{ id: "THEBI", nombrecompania: "The Big Cheese", nombrecontacto: "Liz Nixon" },{ id: "THECR", nombrecompania: "The Cracker Box", nombrecontacto: "Liu Wong" },{ id: "TOMSP", nombrecompania: "Toms Spezialit", nombrecontacto: "Karin Josephs" },{ id: "TORTU", nombrecompania: "Tortuga Restaurante", nombrecontacto: "Miguel Angel Paolino" },{ id: "TRADH", nombrecompania: "Tradi", nombrecontacto: "Anabela Domingues" },{ id: "TRAIH", nombrecompania: "Trail's Head Gourmet Provisioners", nombrecontacto: "Helvetius Nagy" },{ id: "VAFFE", nombrecompania: "Vaffeljernet", nombrecontacto: "Palle Ibsen" },{ id: "VICTE", nombrecompania: "Victuailles en stock", nombrecontacto: "Mary Saveley" },{ id: "VINET", nombrecompania: "Vins et alcools Chevalier", nombrecontacto: "Paul Henriot" },{ id: "WANDK", nombrecompania: "Die Wandernde Kuh", nombrecontacto: "Rita M" },{ id: "WARTH", nombrecompania: "Wartian Herkku", nombrecontacto: "Pirkko Koskitalo" },{ id: "WELLI", nombrecompania: "Wellington Importadora", nombrecontacto: "Paula Parente" },{ id: "WHITC", nombrecompania: "White Clover Markets", nombrecontacto: "Karl Jablonski" },{ id: "WILMK", nombrecompania: "Wilman Kala", nombrecontacto: "Matti Karttunen" },{ id: "WOLZA", nombrecompania: "Wolski  Zajazd", nombrecontacto: "Zbyszek Piestrzeniewicz" },];
+  buildTable(myArray);
+
+  function buildTable(data) {
+    var table = document.getElementById("myTable");
+
+    for (var i = 0; i < data.length; i++) {
+      var row = `<tr>
+							<td>${data[i].id}</td>
+							<td>${data[i].nombrecompania}</td>
+							<td>${data[i].nombrecontacto}</td>
+					  </tr>`;
+      table.innerHTML += row;
+    }
+  }
+</script>
