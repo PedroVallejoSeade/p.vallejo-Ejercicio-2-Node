@@ -20,7 +20,7 @@
   <tr>
     <th>ID</th>
     <th>Nombre</th>
-    <th>Compania</th>
+    <th>Contacto</th>
   </thead>
   </tr>
 
@@ -28,15 +28,8 @@
 </table>
 
 <script>
-  var myArray = [
-    { name: "Michael", age: "30", birthdate: "11/10/1989" },
-    { name: "Mila", age: "32", birthdate: "10/1/1989" },
-    { name: "Paul", age: "29", birthdate: "10/14/1990" },
-    { name: "Dennis", age: "25", birthdate: "11/29/1993" },
-    { name: "Tim", age: "27", birthdate: "3/12/1991" },
-    { name: "Erik", age: "24", birthdate: "10/31/1995" },
-  ];
-
+  var myArray = 
+[{ id: "1", nombrecompania: "Exotic Liquids", nombrecontacto: "Charlotte Cooper" },{ id: "2", nombrecompania: "New Orleans Cajun Delights", nombrecontacto: "Shelley Burke" },{ id: "3", nombrecompania: "Grandma Kelly's Homestead", nombrecontacto: "Regina Murphy" },{ id: "4", nombrecompania: "Tokyo Traders", nombrecontacto: "Yoshi Nagase" },{ id: "5", nombrecompania: "Cooperativa de Quesos 'Las Cabras'", nombrecontacto: "Antonio del Valle Saavedra " },{ id: "6", nombrecompania: "Mayumi's", nombrecontacto: "Mayumi Ohno" },{ id: "7", nombrecompania: "Pavlova, Ltd.", nombrecontacto: "Ian Devling" },{ id: "8", nombrecompania: "Specialty Biscuits, Ltd.", nombrecontacto: "Peter Wilson" },{ id: "9", nombrecompania: "PB Kn", nombrecontacto: "Lars Peterson" },{ id: "10", nombrecompania: "Refrescos Americanas LTDA", nombrecontacto: "Carlos Diaz" },{ id: "11", nombrecompania: "Heli S", nombrecontacto: "Petra Winkler" },{ id: "12", nombrecompania: "Plutzer Lebensmittelgro", nombrecontacto: "Martin Bein" },{ id: "13", nombrecompania: "Nord Ost Fisch Handelsgesellschaft mbH", nombrecontacto: "Sven Petersen" },{ id: "14", nombrecompania: "Formaggi Fortini s.r.l.", nombrecontacto: "Elio Rossi" },{ id: "15", nombrecompania: "Norske Meierier", nombrecontacto: "Beate Vileid" },{ id: "16", nombrecompania: "Bigfoot Breweries", nombrecontacto: "Cheryl Saylor" },{ id: "17", nombrecompania: "Svensk Sj", nombrecontacto: "Michael Bj" },{ id: "18", nombrecompania: "Aux joyeux eccl", nombrecontacto: "Guyl" },{ id: "19", nombrecompania: "New England Seafood Cannery", nombrecontacto: "Robb Merchant" },{ id: "20", nombrecompania: "Leka Trading", nombrecontacto: "Chandra Leka" },{ id: "21", nombrecompania: "Lyngbysild", nombrecontacto: "Niels Petersen" },{ id: "22", nombrecompania: "Zaanse Snoepfabriek", nombrecontacto: "Dirk Luchte" },{ id: "23", nombrecompania: "Karkki Oy", nombrecontacto: "Anne Heikkonen" },{ id: "24", nombrecompania: "G'day, Mate", nombrecontacto: "Wendy Mackenzie" },{ id: "25", nombrecompania: "Ma Maison", nombrecontacto: "Jean Guy Lauzon" },{ id: "26", nombrecompania: "Pasta Buttini s.r.l.", nombrecontacto: "Giovanni Giudici" },{ id: "27", nombrecompania: "Escargots Nouveaux", nombrecontacto: "Marie Delamare" },{ id: "28", nombrecompania: "Gai p", nombrecontacto: "Eliane Noz" },{ id: "29", nombrecompania: "For", nombrecontacto: "Chantal Goulet" },];
   buildTable(myArray);
 
   function buildTable(data) {
@@ -44,9 +37,9 @@
 
     for (var i = 0; i < data.length; i++) {
       var row = `<tr>
-							<td>${data[i].name}</td>
-							<td>${data[i].age}</td>
-							<td>${data[i].birthdate}</td>
+							<td>${data[i].id}</td>
+							<td>${data[i].nombrecompania}</td>
+							<td>${data[i].nombrecontacto}</td>
 					  </tr>`;
       table.innerHTML += row;
     }
